@@ -20,10 +20,10 @@ const PREFIX = "!";
 
 const standupIntroMessage = new MessageEmbed()
   .setColor("#ff9900")
-  .setTitle("Daily Standup")
+  .setTitle("Daily Standup CIC Team")
   .setURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
   .setDescription(
-    "This is the newly generated text channel used for daily standups! :tada:"
+    "This is the newly generated text channel used for daily standups on CIC Team! :tada:"
   )
   .addFields(
     {
@@ -40,17 +40,17 @@ const standupIntroMessage = new MessageEmbed()
     }
   )
   .setFooter(
-    "https://github.com/navn-r/standup-bot",
+    "https://github.com/adnanjt/standup-bot",
     "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
   )
   .setTimestamp();
 
 const dailyStandupSummary = new MessageEmbed()
   .setColor("#ff9900")
-  .setTitle("Daily Standup")
+  .setTitle("Daily Standup CIC Team")
   .setURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
   .setFooter(
-    "https://github.com/navn-r/standup-bot",
+    "https://github.com/adnanjt/standup-bot",
     "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
   )
   .setTimestamp();
@@ -81,7 +81,7 @@ mongoose
 
 mongoose.connection.once("open", () => console.log("mongoDB connected"));
 
-bot.once("ready", () => console.log("Discord Bot Ready"));
+bot.once("ready", () => console.log("Discord Bot Ready App is Up!!!"));
 
 // when a user enters a command
 bot.on("message", async (message) => {
@@ -113,7 +113,7 @@ bot.on("guildCreate", async (guild) => {
   // creates the text channel
   const channel = await guild.channels.create("daily-standups", {
     type: "text",
-    topic: "Scrum Standup Meeting Channel",
+    topic: "Standup Meeting Channel CIC Team",
   });
 
   // creates the database model
@@ -141,10 +141,10 @@ bot.on("guildDelete", (guild) => {
 });
 
 /**
- * Cron Job: 10:30:00 AM EST - Go through each standup and output the responses to the channel
+ * Cron Job: 9:30:00 AM EST - Go through each standup and output the responses to the channel
  */
 let cron = schedule.scheduleJob(
-  { hour: 15, minute: 30, dayOfWeek: new schedule.Range(1, 5) },
+  { hour: 14, minute: 30, dayOfWeek: new schedule.Range(1, 5) },
   (time) => {
     console.log(`[${time}] - CRON JOB START`);
     standupModel
