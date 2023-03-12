@@ -19,11 +19,11 @@ const standupModel = require("./models/standup.model");
 const PREFIX = "!";
 
 const standupIntroMessage = new MessageEmbed()
-  .setColor("#ff9900")
+  .setColor("#B3D556")
   .setTitle("Daily Standup CIC Team")
   .setURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
   .setDescription(
-    "This is the newly generated text channel used for daily standups on CIC Team! :tada:"
+    "This is the newly generated text channel used for daily standups in the CIC Team! :tada:"
   )
   .addFields(
     {
@@ -32,7 +32,7 @@ const standupIntroMessage = new MessageEmbed()
     },
     {
       name: "How does this work?",
-      value: `Anytime before the standup time \`10:30 AM EST\`, members would private DM me with the command \`${PREFIX}show\`, I will present the standup prompt and they will type their response using the command \`${PREFIX}reply @<optional_serverId> [your-message-here]\`. I will then save their response in my *secret special chamber of data*, and during the designated standup time, I would present everyone's answer to \`#daily-standups\`.`,
+      value: `Anytime before the standup time \`9:30 AM AST\`, members would private DM me with the command \`${PREFIX}show\`, I will present the standup prompt and they will type their response using the command \`${PREFIX}reply @<optional_serverId> [your-message-here]\`. I will then save their response in my *secret special chamber of data*, and during the designated standup time, I would present everyone's answer to \`#daily-standups\`.`,
     },
     {
       name: "Getting started",
@@ -46,13 +46,9 @@ const standupIntroMessage = new MessageEmbed()
   .setTimestamp();
 
 const dailyStandupSummary = new MessageEmbed()
-  .setColor("#ff9900")
+  .setColor("#B3D556")
   .setTitle("Daily Standup CIC Team")
   .setURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-  .setFooter(
-    "https://github.com/adnanjt/standup-bot",
-    "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-  )
   .setTimestamp();
 
 // lists .js files in commands dir
@@ -141,7 +137,7 @@ bot.on("guildDelete", (guild) => {
 });
 
 /**
- * Cron Job: 9:30:00 AM EST - Go through each standup and output the responses to the channel
+ * Cron Job: 9:30:00 AM AST - Go through each standup and output the responses to the channel
  */
 let cron = schedule.scheduleJob(
   { hour: 14, minute: 30, dayOfWeek: new schedule.Range(1, 5) },
